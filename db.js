@@ -14,6 +14,7 @@ pool.on('error', function (err) {
 })
 
 const userModel = require('./models/users')(pool);
+//const profilesModel = require('./models/profiles')(pool)
 
 module.exports = {
     pool,

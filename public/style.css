@@ -1,0 +1,19 @@
+.loginpage {
+	margin: 0 auto;
+	max-width: 800px;
+	text-align: center;
+	position: relative;
+}
+
+#info {
+	display: inline;
+}
+
+.desc {
+	background-color: lightgray;
+	height: 150px;
+	width: 150px;
+	display: inline-block;
+	margin: 15px;
+	padding: 10px;
+}

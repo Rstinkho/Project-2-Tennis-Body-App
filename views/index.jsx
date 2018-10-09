@@ -14,7 +14,7 @@ class TestPage extends React.Component {
 
         <h1>Tennis Buddy App</h1>
           <nav><p>Hello {this.props.users[0].name}</p>
-          <a href="">profile edit </a>
+          <a href="http://127.0.0.1:3000/profile">profile edit </a>
           <a href="">messages </a>
           <a href="">logout </a>
           </nav>
@@ -23,14 +23,14 @@ class TestPage extends React.Component {
 
 
       <div class="col-25">
-        <label htmlfor="country"><h2>Search for</h2></label>
+        <label htmlfor="user"><h2>Search for</h2></label>
       </div>
 
       <div class="col-75">
-        <select id="country" name="country">
-          <option value="australia">Noobs</option>
-          <option value="canada">Amateurs</option>
-          <option value="usa">Pro</option>
+        <select id="lvl" name="player level">
+          <option value="t1">Noobs</option>
+          <option value="t2">Amateurs</option>
+          <option value="t3">Pro</option>
         </select>
       </div>
 

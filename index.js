@@ -33,23 +33,4 @@ app.engine('jsx', reactEngine);
 routes(app, db);
 
 
-
-/*
-app.get ('/index', (request, response) => {
-    let sqlText = 'SELECT * FROM users;'
-
-    pool.query(sqlText, (error, queryResult) => {
-              if (error){
-                console.log('error!', error);
-                response.status(500).send('DIDNT WORKS!!');
-              }else{
-
-                const user = queryResult.rows[0];
-              //  console.log(user);
-                response.render('index', {users: queryResult.rows});
-}
-})
-});
-*/
-
 const server = app.listen(3000, () => console.log('~~~ Tuning in to the waves of port 3000 ~~~'));

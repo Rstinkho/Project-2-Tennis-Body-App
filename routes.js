@@ -5,4 +5,6 @@ module.exports = (app, db) => {
     app.get('/index', users.indexLogin)
     app.get('/profile', users.editProfile)
     app.post('/profile', users.addProfile)
+    app.get('/register', users.register)
+    app.post('/register', users.regUser)
 };

@@ -3,8 +3,12 @@ const CHOKCHIPS = "cookies with chips"
 module.exports = (db) => {
 
     const login = (req, res) => {
-        res.render('test');
+        res.render('login');
     };
+
+    const register = (request, response) => {
+        response.render('register');
+    }
 
     const postLogin = (request, response) => {
 
@@ -75,6 +79,23 @@ module.exports = (db) => {
     });
   };
 
+  const regUser = (request, response) => {
+    const users = {
+        name: request.body.name,
+        password: request.body.password
+    }
+
+
+
+        db.userModel.postRegister(users, (error, queryResult) => {
+            if (error) {
+        response.sendStatus(500);
+      } else {
+        response.redirect('/login');
+      }
+        })
+};
+
 
 
 
@@ -83,6 +104,8 @@ module.exports = (db) => {
     postLogin,
     indexLogin,
     editProfile,
-    addProfile
+    addProfile,
+    regUser,
+    register
   }
 }

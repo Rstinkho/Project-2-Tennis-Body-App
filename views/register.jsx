@@ -1,12 +1,18 @@
 var React = require("react");
 
-class TestPage extends React.Component {
+class RegPage extends React.Component {
   render() {
     return (
       <html>
-        <body>
+      <head>
+      <link rel="stylesheet" href="style.css" />
+      </head>
+        <body className ="regpage">
+
+        <h1>Registration</h1>
+
           <nav>
-            <form className="user-form" method="POST" action="/login">
+            <form className="user-form" method="POST" action="/register">
             <div className="user-attribute">
             name<input name="name" type="text" />
             </div>
@@ -18,6 +24,7 @@ class TestPage extends React.Component {
             <input name="submit" type="submit" />
             </form>
 
+
           </nav>
         </body>
      </html>
@@ -25,5 +32,4 @@ class TestPage extends React.Component {
   }
 }
 
-module.exports = TestPage;
-
+module.exports = RegPage;

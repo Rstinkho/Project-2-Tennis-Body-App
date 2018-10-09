@@ -7,6 +7,8 @@ const methodOverride = require('method-override');
 
 const app = express();
 
+
+
 app.use(cookieParser());
 
 // Set up middleware
@@ -19,26 +21,35 @@ app.use(express.urlencoded({
   extended: true
 }));
 
+const db = require('./db');
+const routes = require('./routes')
+
 // Set react-views to be the default view engine
 const reactEngine = require('express-react-views').createEngine();
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');
 app.engine('jsx', reactEngine);
 
-const pg = require('pg');
+routes(app, db);
 
-const configs = {
-  user: 'taras',
-  host: '127.0.0.1',
-  database: 'tennis',
-  port: 5432
-};
 
-const pool = new pg.Pool(configs);
 
-app.get('/test', (request, response) => {
+/*
+app.get ('/index', (request, response) => {
+    let sqlText = 'SELECT * FROM users;'
 
-    response.send('working!');
+    pool.query(sqlText, (error, queryResult) => {
+              if (error){
+                console.log('error!', error);
+                response.status(500).send('DIDNT WORKS!!');
+              }else{
+
+                const user = queryResult.rows[0];
+              //  console.log(user);
+                response.render('index', {users: queryResult.rows});
+}
+})
 });
+*/
 
 const server = app.listen(3000, () => console.log('~~~ Tuning in to the waves of port 3000 ~~~'));

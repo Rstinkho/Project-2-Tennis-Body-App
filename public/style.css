@@ -1,0 +1,26 @@
+
+body {
+	width: 1024px;
+
+}
+
+header {
+	width: 1024px;
+	height: 250px;
+	display: inline;
+}
+
+nav {
+	display: inline-block;
+	float: right;
+}
+
+h1 {
+	float: left;
+}
+
+
+main {
+
+	display: inline;
+}

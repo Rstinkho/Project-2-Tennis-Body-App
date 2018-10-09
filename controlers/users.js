@@ -28,7 +28,7 @@ module.exports = (db) => {
 
                             let currentSessionCookie = sha256( user.id + CHOKCHIPS );
                             response.cookie('loggedin', currentSessionCookie);
-                            response.cookie('user_name', request.body.name)
+                            response.cookie('user_id', user.id)
 
                             //response.send(request.body.name + ' successfully login');
                             response.redirect('index');
@@ -45,16 +45,44 @@ module.exports = (db) => {
 
     }
 
-    const indexLogin = (req, res) => {
-        db.userModel.indexPage(req.body, (error, queryResult) => {
-            res.render('index', {users: queryResult.rows});
+    const indexLogin = (request, response) => {
+        db.userModel.indexPage(request.body, (error, queryResult) => {
+            response.render('index', {users: queryResult.rows});
 
         })
-
+ }
+    const editProfile = (request, response) => {
+        response.render('profile')
     }
+
+    const addProfile = (request, response) => {
+        const userProfile = {
+            user_id: request.cookies.user_id,
+            forehand: request.body.forehand,
+            backhand: request.body.backhand,
+            endurance: request.body.endurance,
+            speed: request.body.speed,
+            serve: request.body.serve,
+            volley: request.body.volley
+        }
+    //    console.log(userProfile.backhand);
+        db.userModel.profileAdd(userProfile, (error, queryResult) => {
+            if (error) {
+        response.sendStatus(500);
+      } else {
+        response.redirect('/index');
+      }
+    });
+  };
+
+
+
+
   return {
     login,
     postLogin,
-    indexLogin
+    indexLogin,
+    editProfile,
+    addProfile
   }
 }

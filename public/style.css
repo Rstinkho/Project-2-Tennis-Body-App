@@ -1,20 +1,22 @@
-.loginpage {
-	margin: 0 auto;
-	max-width: 800px;
-	text-align: center;
-	position: relative;
+.my-container {
+        border: 1px solid black;
+      }
+
+.my-row {
+	border: 3px solid red;
+
 }
 
-#info {
-	display: inline;
+.my-col {
+	border: 3px dotted blue;
 }
 
-.desc {
-	background-color: lightgray;
-	height: 150px;
-	width: 150px;
+#header {
+	height: 125px;
+}
+
+#searchEngine {
+	height: 30px;
 	display: inline-block;
-	margin: 15px;
-	padding: 10px;
 }
 

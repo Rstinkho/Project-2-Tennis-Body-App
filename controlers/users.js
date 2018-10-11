@@ -21,8 +21,7 @@ module.exports = (db) => {
 
     const postLogin = (request, response) => {
 
-        db.userModel.userLogin(request.body.name, (error, queryResult) => {
-            console.log(request.body.name)
+        db.userModel.userLogin(request.body.name, (error, queryResult, queryResultTwo) => {
             // 1. check for error
             // 2. if no error, check if results is empty?
             // 3. if not empty, match password
@@ -31,8 +30,20 @@ module.exports = (db) => {
                 response.status(500).send('DIDNT WORKS!!');
             }
 
-                    const user = queryResult;
-                    console.log(queryResult)
+           // console.log(queryResult);
+           // console.log(queryResultTwo)
+
+                    const user = queryResult[0];
+
+                    const govno = {
+                        one: queryResult,
+                        two: queryResultTwo
+                    };
+
+                   // console.log(govno)
+
+
+                    // console.log(queryResultTwo);
 
                 // var hashedValue = sha256(request.body.user_password);
 
@@ -42,7 +53,7 @@ module.exports = (db) => {
                         response.cookie('loggedin', currentSessionCookie);
                         response.cookie('user_id', user.id);
                         response.cookie('user_name', user.name);
-                        response.render('index', { info: queryResult });
+                        response.render('index', { info: govno });
                         /*
                         response.cookie('loggedin' {
                             hash: currentSessionCookie
@@ -94,22 +105,25 @@ module.exports = (db) => {
   };
 
     const regUser = (request, response) => {
-    const users = {
+
+        const users = {
         name: request.body.name,
         password: request.body.password
-    }
+        }
 
         db.userModel.postRegister(users, (error, queryResult) => {
             if (error) {
         response.sendStatus(500);
-      } else {
+            }   else {
+
         response.cookie('user_name', request.body.name)
         response.redirect('/registerStep2');
-      }
+
+                }
         })
 
 
-};
+    };
 
 
 

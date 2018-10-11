@@ -1,8 +1,16 @@
 module.exports = (db) => {
-
-        const userLogin = (userInfo, callback) => {
+/*
+        const foo = (name, callback){
+            userLogin(name, (result1)=>{
+                indexPage(null, (result2)=>{
+                    callback(result1, result2);
+                })
+            })
+}
+*/
+        const userLogin = (name, callback) => {
             const sqlText = "SELECT * FROM users INNER JOIN profiles ON profiles.name = users.name WHERE users.name = $1;";
-            const values = [userInfo];
+            const values = [name];
 
             db.query(sqlText, values, (error, queryResult) => {
 
@@ -10,10 +18,22 @@ module.exports = (db) => {
                     console.log('error', error);
                     callback(error, null);
                 } else {
-                    callback(null, queryResult.rows[0]);
+
+                    const sqlTextTwo = "SELECT * FROM users;"
+                    db.query(sqlTextTwo, (error, queryResultTwo) => {
+
+                    if (error) {
+                    console.log('wtf')
+                    console.log('error', error)
+                    callback(error, null);
+
+                    } else {
+                    callback(null, queryResult.rows, queryResultTwo.rows)
+                    }
+                    })
                 }
             })
-        }
+ }
 
     const indexPage = (queryResult, callback) => {
         const sqlText = "SELECT * FROM users WHERE id=$1;"
@@ -28,13 +48,17 @@ module.exports = (db) => {
         const values = [queryResult.user_name, queryResult.forehand, queryResult.backhand, queryResult.endurance, queryResult.speed, queryResult.serve, queryResult.volley];
 
         db.query(sqlText, values, (error, queryResult) => {
-      if (error) {
+            if (error) {
+
         console.log('error', error);
         callback(error, null);
-      } else {
+
+            } else {
+
         callback(null, queryResult.rows[0]);
-      }
-    })
+
+            }
+        })
     }
 
     const postRegister = (info, callback) => {
@@ -42,15 +66,18 @@ module.exports = (db) => {
         const values = [info.name, info.password];
 
         db.query(sqlText, values, (error, queryResult) => {
-        if (error) {
-        console.log('error', error);
-        callback(error, null);
-      } else {
+
+            if (error) {
+            console.log('error', error);
+            callback(error, null);
+
+            } else {
+
         callback(null, queryResult.rows[0]);
-      }
+            }
 
         })
-    }
+    };
 
 
 

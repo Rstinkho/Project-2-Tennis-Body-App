@@ -17,7 +17,7 @@ class LoginPage extends React.Component {
         <div className="desc"><p></p>info3</div>
         </div>
           <nav>
-            <form className="user-form" method="POST" action="/login">
+            <form className="user-form" method="POST" action="/index">
             <div className="user-attribute">
             name<input name="name" type="text" />
             </div>

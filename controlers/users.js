@@ -6,62 +6,75 @@ module.exports = (db) => {
         res.render('login');
     };
 
+    const logout = (req, res) => {
+        res.clearCookie('user_id');
+        res.clearCookie('loggedin');
+        res.clearCookie('user_name');
+        res.redirect('/login')
+    }
+
     const register = (request, response) => {
         response.render('register');
     }
 
+
+
     const postLogin = (request, response) => {
 
-            db.userModel.userLogin(request.body.name, (error, queryResult) => {
-                // 1. check for error
-                // 2. if no error, check if results is empty?
-                // 3. if not empty, match password
-                if (error){
-                    console.log('error!', error);
-                    response.status(500).send('DIDNT WORKS!!');
-                }else{
+        db.userModel.userLogin(request.body.name, (error, queryResult) => {
+            console.log(request.body.name)
+            // 1. check for error
+            // 2. if no error, check if results is empty?
+            // 3. if not empty, match password
+            if (error){
+                console.log('error!', error);
+                response.status(500).send('DIDNT WORKS!!');
+            }
 
-                    if (queryResult.rows.length < 1) {
+                    const user = queryResult;
+                    console.log(queryResult)
 
-                    } else {
-                        const user = queryResult.rows[0];
+                // var hashedValue = sha256(request.body.user_password);
 
-                    //             var hashedValue = sha256(request.body.user_password);
+                    if( user.password === request.body.password &&  user.name === request.body.name ){
 
-                        if( user.password === request.body.password &&  user.name === request.body.name ){
-
-                            let currentSessionCookie = sha256( user.id + CHOKCHIPS );
-                            response.cookie('loggedin', currentSessionCookie);
-                            response.cookie('user_id', user.id)
-
-                            //response.send(request.body.name + ' successfully login');
-                            response.redirect('index');
-
-
-                        }else{
-
-                           response.send('wtf');
-
-                        }
+                        let currentSessionCookie = sha256( user.id + CHOKCHIPS );
+                        response.cookie('loggedin', currentSessionCookie);
+                        response.cookie('user_id', user.id);
+                        response.cookie('user_name', user.name);
+                        response.render('index', { info: queryResult });
+                        /*
+                        response.cookie('loggedin' {
+                            hash: currentSessionCookie
+                            user_id: user.id
+                        })
+                        */
+                    } else{
+                       response.send('wtf');
                     }
-                }
-            })
 
+            // db.userModel.userLogin(info, (error, queryResult) => {
+            //     if (error) {
+            //     response.sendStatus(500);
+            //   } else {
+
+            //   }
+            // })
+        })
     }
 
-    const indexLogin = (request, response) => {
-        db.userModel.indexPage(request.body, (error, queryResult) => {
-            response.render('index', {users: queryResult.rows});
+     const registerStepTwo = (request, response) => {
+        response.render('registerStep2')
+    }
 
-        })
- }
+
     const editProfile = (request, response) => {
         response.render('profile')
     }
 
     const addProfile = (request, response) => {
         const userProfile = {
-            user_id: request.cookies.user_id,
+            user_name: request.cookies.user_name,
             forehand: request.body.forehand,
             backhand: request.body.backhand,
             endurance: request.body.endurance,
@@ -69,43 +82,47 @@ module.exports = (db) => {
             serve: request.body.serve,
             volley: request.body.volley
         }
+
     //    console.log(userProfile.backhand);
         db.userModel.profileAdd(userProfile, (error, queryResult) => {
             if (error) {
         response.sendStatus(500);
       } else {
-        response.redirect('/index');
+        response.redirect('/login');
       }
     });
   };
 
-  const regUser = (request, response) => {
+    const regUser = (request, response) => {
     const users = {
         name: request.body.name,
         password: request.body.password
     }
 
-
-
         db.userModel.postRegister(users, (error, queryResult) => {
             if (error) {
         response.sendStatus(500);
       } else {
-        response.redirect('/login');
+        response.cookie('user_name', request.body.name)
+        response.redirect('/registerStep2');
       }
         })
+
+
 };
+
 
 
 
 
   return {
     login,
+    logout,
     postLogin,
-    indexLogin,
     editProfile,
     addProfile,
     regUser,
-    register
+    register,
+    registerStepTwo
   }
 }

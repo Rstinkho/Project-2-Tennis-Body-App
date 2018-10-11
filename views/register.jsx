@@ -20,12 +20,12 @@ class RegPage extends React.Component {
             <div className="user-attribute">
               password:<input name="password" type="text" />
             </div>
-
             <input name="submit" type="submit" />
             </form>
 
 
           </nav>
+
         </body>
      </html>
            );

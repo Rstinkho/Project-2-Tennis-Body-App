@@ -1,10 +1,11 @@
 module.exports = (app, db) => {
     const users = require('./controlers/users')(db);
     app.get('/login', users.login)
-    app.post('/login', users.postLogin)
-    app.get('/index', users.indexLogin)
+    app.get('/logout', users.logout)
+    app.post('/index', users.postLogin)
     app.get('/profile', users.editProfile)
     app.post('/profile', users.addProfile)
     app.get('/register', users.register)
     app.post('/register', users.regUser)
+    app.get('/registerStep2', users.registerStepTwo)
 };

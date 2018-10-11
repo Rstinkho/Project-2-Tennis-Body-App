@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS users(
 );
 
 CREATE TABLE IF NOT EXISTS profiles(
-  user_id INTEGER,
+  name TEXT,
   forehand INTEGER,
   backhand INTEGER,
   endurance INTEGER,
@@ -13,3 +13,9 @@ CREATE TABLE IF NOT EXISTS profiles(
   serve INTEGER,
   volley INTEGER
 );
+
+CREATE TABLE IF NOT EXISTS messages(
+user_id INTEGER,
+inc_message TEXT,
+out_message TEXT)
+

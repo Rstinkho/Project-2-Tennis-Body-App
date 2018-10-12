@@ -32,5 +32,4 @@ app.engine('jsx', reactEngine);
 
 routes(app, db);
 
-
 const server = app.listen(3000, () => console.log('~~~ Tuning in to the waves of port 3000 ~~~'));

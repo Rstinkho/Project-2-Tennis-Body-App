@@ -11,11 +11,13 @@ CREATE TABLE IF NOT EXISTS profiles(
   endurance INTEGER,
   speed INTEGER,
   serve INTEGER,
-  volley INTEGER
+  volley INTEGER,
+  skillLevel TEXT
 );
 
 CREATE TABLE IF NOT EXISTS messages(
-user_id INTEGER,
+user_send_id INTEGER,
+user_rec_id INTEGER,
 inc_message TEXT,
 out_message TEXT)
 

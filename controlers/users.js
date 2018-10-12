@@ -95,7 +95,7 @@ module.exports = (db) => {
         }
 
     //    console.log(userProfile.backhand);
-        db.userModel.profileAdd(userProfile, (error, queryResult) => {
+        db.userModel.profileAdd(userProfile, (error, queryResult, queryResultTwo) => {
             if (error) {
         response.sendStatus(500);
       } else {

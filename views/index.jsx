@@ -4,7 +4,7 @@ var React = require("react");
 class TestPage extends React.Component {
   render() {
     const people = this.props.info.two.map((person) => {
-        return (<li>{person.name} <button name="message">messsage</button></li>)
+        return (<li>{person.name} <button name="message">messsage to {person.id}</button></li>)
     })
     console.log(this.props.info.two)
     var x = this.props.info.one[0];
@@ -46,7 +46,7 @@ class TestPage extends React.Component {
 
             </div>
 
-             <div className="row my-row" id="searcheEngine">
+             <div className="row my-row" id="searcheEngine" >
              <form className="selectLevel">
 
              <p>search for</p>

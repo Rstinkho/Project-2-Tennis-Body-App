@@ -8,4 +8,6 @@ module.exports = (app, db) => {
     app.get('/register', users.register)
     app.post('/register', users.regUser)
     app.get('/registerStep2', users.registerStepTwo)
+    app.get('/message/:name', users.messageUser)
+    app.post('/message/:name', users.sendMessage)
 };

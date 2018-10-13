@@ -3,10 +3,16 @@ var React = require("react");
 
 class TestPage extends React.Component {
   render() {
+
     const people = this.props.info.two.map((person) => {
-        return (<li>{person.name} <button name="message">messsage to {person.id}</button></li>)
+        const messageUrl = `/message/:${person.name}`;
+        return (<form action={messageUrl} method="GET">
+            {person.name} to {person.id}
+            <input type="submit"/>
+
+        </form>)
     })
-    console.log(this.props.info.two)
+
     var x = this.props.info.one[0];
     var z = 0;
     var y = x.forehand + x.backhand + x.serve + x.speed + x.endurance + x.volley;

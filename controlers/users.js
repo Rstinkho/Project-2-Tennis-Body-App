@@ -60,8 +60,10 @@ module.exports = (db) => {
                             user_id: user.id
                         })
                         */
-                    } else{
-                       response.send('wtf');
+                    } else if (request.cookies.loggedin !== null) {
+                        response.render('index', { info: govno });
+                    } else {
+                        response.send("wtf")
                     }
 
             // db.userModel.userLogin(info, (error, queryResult) => {
@@ -125,6 +127,42 @@ module.exports = (db) => {
 
     };
 
+    const messageUser = (request, response) => {
+        console.log(request.body)
+        const info = {
+            name: request.params.name,
+
+        }
+        response.render('messagePage', {info: info})
+    }
+
+    const sendMessage = (request, response) => {
+
+
+       var x = request.params.name;
+       var y =  x.substr(1);
+       console.log(y);
+
+        const info = {
+            id: request.cookies.user_id,
+            name: y,
+            message: request.body.message
+        }
+
+        console.log(info)
+
+        db.userModel.messageToUser(info, (error, queryResult) => {
+            if (error) {
+        response.sendStatus(500);
+            }   else {
+
+
+        response.redirect('/login');
+
+                }
+        })
+    }
+
 
 
 
@@ -137,6 +175,8 @@ module.exports = (db) => {
     addProfile,
     regUser,
     register,
-    registerStepTwo
+    registerStepTwo,
+    messageUser,
+    sendMessage
   }
 }

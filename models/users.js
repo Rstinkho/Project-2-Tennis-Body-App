@@ -60,7 +60,6 @@ module.exports = (db) => {
                 const sqlTextTwo = "UPDATE profiles SET skilllevel = $1 WHERE name = $2;"
 
                 var valuesTwo;
-                console.log(regName)
                 if (summ <= 20) {
                     var valuesTwo = ['noob', regName];
                 } else if (summ > 20) {
@@ -99,6 +98,22 @@ module.exports = (db) => {
         })
     };
 
+    const messageToUser = (info, callback) => {
+        const sqlText = "INSERT INTO messages (sender_id, receiver, message) Values ($1, $2, $3);"
+        const values = [info.id, info.name, info.message];
+
+        db.query(sqlText, values, (error, queryResult) => {
+            if (error) {
+            console.log('error', error);
+            callback(error, null);
+
+            } else {
+
+        callback(null, queryResult.rows[0]);
+            }
+        })
+    }
+
 
 
 
@@ -111,6 +126,7 @@ module.exports = (db) => {
         userLogin,
         indexPage,
         profileAdd,
-        postRegister
+        postRegister,
+        messageToUser
      }
 }

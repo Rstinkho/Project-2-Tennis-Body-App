@@ -16,8 +16,8 @@ CREATE TABLE IF NOT EXISTS profiles(
 );
 
 CREATE TABLE IF NOT EXISTS messages(
-user_send_id INTEGER,
-user_rec_id INTEGER,
-inc_message TEXT,
-out_message TEXT)
+sender_id INTEGER,
+receiver TEXT,
+message TEXT
+);
 

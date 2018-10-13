@@ -163,6 +163,30 @@ module.exports = (db) => {
         })
     }
 
+    const messagePage = (request, response) => {
+        const info = {
+           id: request.cookies.user_id,
+           name: request.cookies.user_name
+        }
+
+        db.userModel.messageModel(info, (error, queryResult, queryResultTwo) => {
+           // console.log(queryResultTwo)
+            const infoAfterQ = {
+                one: queryResult,
+                two: queryResultTwo
+            };
+
+        if (error) {
+        response.sendStatus(500);
+            }   else {
+
+
+        response.render('messages', {info: infoAfterQ});
+
+                }
+        })
+    }
+
 
 
 
@@ -177,6 +201,7 @@ module.exports = (db) => {
     register,
     registerStepTwo,
     messageUser,
-    sendMessage
+    sendMessage,
+    messagePage
   }
 }

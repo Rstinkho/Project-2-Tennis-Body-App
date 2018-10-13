@@ -1,3 +1,9 @@
+#indexBody {
+	background-repeat: no-repeat;
+	background-image: url("/images/body.jpg");
+	background-size: cover;
+}
+
 .my-container {
         border: 1px solid black;
       }
@@ -9,6 +15,7 @@
 
 .my-col {
 	border: 3px dotted blue;
+
 }
 
 #header {
@@ -20,3 +27,16 @@
 	display: inline-block;
 }
 
+img {
+
+	margin-bottom: 5px;
+}
+
+p {
+	font-size: 22px;
+}
+
+input[type=submit] {
+    background:#ccc;
+    font-size: 8px;
+}

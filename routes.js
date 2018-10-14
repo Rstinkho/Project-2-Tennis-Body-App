@@ -9,6 +9,7 @@ module.exports = (app, db) => {
     app.get('/login', users.login)
     app.get('/logout', users.logout)
 
+    app.get('/index', users.index)
     app.post('/index', users.postLogin)
     app.get('/index/messages', users.messagePage)
 

@@ -138,7 +138,7 @@ class TestPage extends React.Component {
         </div>
     </body>
 
-     </html>
+    </html>
 
     )
   }

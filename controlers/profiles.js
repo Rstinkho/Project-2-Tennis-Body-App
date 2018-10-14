@@ -23,7 +23,7 @@ module.exports = (db) => {
                 response.sendStatus(500);
             } else {
 
-              response.redirect('/login')
+              response.redirect('/index')
             }
         })
     }

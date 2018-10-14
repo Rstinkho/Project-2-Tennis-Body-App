@@ -19,6 +19,27 @@ module.exports = (db) => {
         response.render('register');
     };
 
+    const index = (request, response) => {
+        db.userModel.userLogin(request.cookies.user_name, (error, queryResult, queryResultTwo) => {
+                 if (error){
+            console.log('error!', error);
+            response.status(500).send('DIDNT WORKS!!');
+            }
+
+                    const user = queryResult[0];
+
+                    const govno = {
+                    one: queryResult,
+                    two: queryResultTwo
+                    };
+
+                if (request.cookies.user_name === null || request.cookies.loggedin === null || request.cookies.user_id === null) {
+                    response.send("Please log in to browse the app")
+                } else {
+                    response.render('index', {info: govno})
+                }
+        })
+    }
 
     const postLogin = (request, response) => {
 
@@ -137,7 +158,7 @@ module.exports = (db) => {
             response.sendStatus(500);
 
             } else {
-            response.redirect('/login');
+            response.redirect('/index');
             }
         })
     };
@@ -177,6 +198,7 @@ module.exports = (db) => {
     registerStepTwo,
     messageUser,
     sendMessage,
-    messagePage
+    messagePage,
+    index
   }
 };

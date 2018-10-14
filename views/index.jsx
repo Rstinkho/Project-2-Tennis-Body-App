@@ -3,14 +3,17 @@ var React = require("react");
 
 class TestPage extends React.Component {
   render() {
-
+    const urlForEdit = `profile/:${this.props.info.one[0].name}/edit`
     const people = this.props.info.two.map((person) => {
         const messageUrl = `/message/:${person.name}`;
+
+        //console.log(urlForEdit);
+
         return (<form action={messageUrl} method="GET">
             {person.name}  <input type="submit" value ="message"/>
-
-        </form>)
+                </form>)
     })
+
     var oneStar = <img src="/images/star.jpg" />
     var twoStar = <img src="/images/twostars.jpg" />
     var threeStar = <img src="/images/threestars.jpg" />
@@ -61,37 +64,39 @@ class TestPage extends React.Component {
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
 
       </head>
-        <body id="indexBody">
+    <body id="indexBody">
         <div className="container my-container">
+
             <div className="row my-row" id="header">
+
                 <div className="col my-col">
                     <h1>Tennis Buddy App</h1>
-
                 </div>
 
                 <div className="col text-right my-col" >
+
                     <nav className="navbar navbar-light bg-light">
                         <p className="navbar-brand">Hello {this.props.info.one[0].name}</p>
-
-                            <a href="http://127.0.0.1:3000/profile"> | profile edit </a>
+                            <a href ={urlForEdit}> |profile </a>
                             <a href="http://127.0.0.1:3000/index/messages"> | messages  </a>
                             <a href="http://127.0.0.1:3000/logout"> | logout  </a>
-
                     </nav>
+
                 </div>
 
             </div>
 
+
              <div className="row my-row" id="searcheEngine" >
              <form className="selectLevel">
 
-             <p>search for</p>
-                <select id="lvl" name="player level">
-                      <option value="t1">Noobs</option>
-                      <option value="t2">Amateurs</option>
-                      <option value="t3">Pro</option>
-                     </select>
-            <button>GO!</button>
+                 <p>search for</p>
+                    <select id="lvl" name="player level">
+                          <option value="t1">Noobs</option>
+                          <option value="t2">Amateurs</option>
+                          <option value="t3">Pro</option>
+                         </select>
+                <button>GO!</button>
 
             </form>
             </div>
@@ -107,35 +112,36 @@ class TestPage extends React.Component {
                       <li><p>serve: {this.props.info.one[0].serve} {starForServe} </p></li>
                       <li><p>speed: {this.props.info.one[0].speed} {starForSpeed} </p></li>
                       <li><p>endurance: {this.props.info.one[0].endurance} {starForEndurance}</p> </li>
-                      </ul>
+                    </ul>
 
                 </div>
-                                          <div className="col my-col">
-                          <h2>reccomendations</h2>
-                          <ul>
-                              <li>{sct}</li>
-                              <li>{exr}</li>
-                              <li>{tech}</li>
-                          </ul>
-                          </div>
 
-                <div className="col my-col">
+                    <div className="col my-col">
+
+                        <h2>Reccomendations</h2>
+                        <ul>
+                            <li>{sct}</li>
+                            <li>{exr}</li>
+                            <li>{tech}</li>
+                        </ul>
+
+                    </div>
+
+                    <div className="col my-col">
+
                           <div className="usersList">
-                          <h3>{people}</h3>
+                            <h3>{people}</h3>
                           </div>
 
-
-                </div>
+                    </div>
             </div>
         </div>
-
-
-        </body>
+    </body>
 
      </html>
 
-           );
+    )
   }
-}
+};
 
 module.exports = TestPage;

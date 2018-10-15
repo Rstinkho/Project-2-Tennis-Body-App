@@ -76,6 +76,7 @@ class TestPage extends React.Component {
 
       <link rel="stylesheet" href="style.css" />
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+      <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Gloria+Hallelujah" rel="stylesheet" />
 
       </head>
     <body id="indexBody">
@@ -83,13 +84,13 @@ class TestPage extends React.Component {
 
             <div className="row my-row" id="header">
 
-                <div className="col my-col">
+                <div id="colName" className="col my-col">
                     <h1>Tennis Buddy App</h1>
                 </div>
 
                 <div className="col text-right my-col" >
 
-                    <nav className="navbar navbar-light bg-light">
+                    <nav className="navbar navbar-light bg-darkdark">
                         <p className="navbar-brand">Hello {this.props.info.one[0].name}</p>
                             <a href ={urlForEdit}> |profile </a>
                             <a href="http://127.0.0.1:3000/index/messages"> | messages  </a>
@@ -104,15 +105,14 @@ class TestPage extends React.Component {
 
              <div className="row my-row" id="searcheEngine" >
 <select name="menu1" id="menu1">
-<option value="http://www.espn.com">ESPN</option>
-<option value="http://www.cnn.com">CNN</option>
-<option value="http://www.abcnews.com">ABC</option>
-<option value="http://www.cbsnews.com">CBS</option>
-<option value="http://www.foxnews.com">FOX</option>
+<option value="http://www.espn.com">Newbies</option>
+<option value="http://www.cnn.com">Amateurs</option>
+<option value="http://www.abcnews.com">Pros</option>
+<option value="http://www.cbsnews.com">ByName</option>
 </select>
             </div>
 
-            <div className="row my-row">
+            <div id="skills" className="row my-row">
                 <div className="col-6 my-col">
                     <h2>{z}</h2>
 
@@ -127,7 +127,7 @@ class TestPage extends React.Component {
 
                 </div>
 
-                    <div className="col my-col">
+                    <div id ="peeps" className="col my-col">
 
                         <h2>Recomendations</h2>
                         <ul>
@@ -138,9 +138,10 @@ class TestPage extends React.Component {
 
                     </div>
 
-                    <div className="col my-col">
+                    <div id ="peeps" className="col my-col">
 
                           <div className="usersList">
+                            <h1>Players</h1>
                             <h3>{people}</h3>
                           </div>
 

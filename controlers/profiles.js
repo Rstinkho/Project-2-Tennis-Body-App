@@ -9,7 +9,7 @@ module.exports = (db) => {
             if (error) {
                 response.sendStatus(500);
             } else {
-                response.render('profiles/editprofiles', {info: info})
+                response.render('editprofiles', {info: info})
             }
         })
     };

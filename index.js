@@ -14,7 +14,9 @@ app.use(cookieParser());
 // Set up middleware
 app.use(methodOverride('_method'));
 
-app.use(express.static('public'))
+//app.use(express.static('public'));
+var path=require('path');
+app.use(express.static(path.join(__dirname,"public")));
 
 app.use(express.json());
 app.use(express.urlencoded({

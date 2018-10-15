@@ -22,7 +22,7 @@ module.exports = (db) => {
 
     const messageModel = (info, callback) => {
 
-        const sqlText = "SELECT (message) FROM messages WHERE sender_id = $1;"
+        const sqlText = "SELECT * FROM messages WHERE sender_id = $1;"
         const values = [info.id];
 
         db.query(sqlText, values, (error, queryResult) => {
@@ -53,6 +53,6 @@ module.exports = (db) => {
     };
     return {
         messageModel,
-        messageModel
+        messageToUser
     }
 };

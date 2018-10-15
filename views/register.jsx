@@ -7,18 +7,18 @@ class RegPage extends React.Component {
       <head>
       <link rel="stylesheet" href="style.css" />
       </head>
-        <body className ="regpage">
+        <body>
 
         <h1>Registration</h1>
 
           <nav>
             <form className="user-form" method="POST" action="/register">
-            <div className="user-attribute">
-            name<input name="name" type="text" />
+            <div className = "user-attribute">
+            username: <input className="loginImput" name="name" type="text" />
             </div>
 
             <div className="user-attribute">
-              password:<input name="password" type="text" />
+            password: <input name="password" type="text" />
             </div>
             <input name="submit" type="submit" />
             </form>

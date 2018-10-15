@@ -6,24 +6,53 @@ class LoginPage extends React.Component {
       <html>
       <head>
       <link rel="stylesheet" href="style.css" />
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+      <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Gloria+Hallelujah" rel="stylesheet" />
       </head>
-        <body className ="loginpage">
-
+        <body>
+        <header>
         <h1>Welcome to Tennis Buddy</h1>
-        <h2>An aplication, with which you can finally find out where is the tennis courts in your condo </h2>
-        <div className="info">
-        <div className="desc"><p>info1</p></div>
-        <div className="desc"><p></p>info2</div>
-        <div className="desc"><p></p>info3</div>
+        <h2>You can finally use your condo's tennis court </h2>
+        </header>
+        <div id="loginElem" className="container my-container">
+
+            <div className="row my-row" id="header">
+
+                <div className="col my-col">
+                    <h1>Search for tennis buddies</h1>
+                </div>
+
+                <div className="col  my-col" >
+
+                   <h1>Communicate</h1>
+
+                </div>
+
+                    <div className="col  my-col" >
+
+                   <h1>Analyze your skills</h1>
+
+                </div>
+
+            </div>
         </div>
-          <nav>
-            <form className="user-form" method="POST" action="/index">
-            <div className="user-attribute">
-            name<input name="name" type="text" />
+
+
+
+
+
+
+
+
+
+          <nav className="loginMenu">
+            <form className = "user-form" method="POST" action="/index">
+            <div className = "user-attribute">
+            <p width ="50px"> username:</p><input className="loginImput" name="name" type="text" />
             </div>
 
             <div className="user-attribute">
-              password:<input name="password" type="text" />
+            <p width ="50px"> password:</p><input name="password" type="text" />
             </div>
 
             <input name="submit" type="submit" />
@@ -38,4 +67,31 @@ class LoginPage extends React.Component {
 }
 
 module.exports = LoginPage;
+
+/*
+
+        <div className="row my-row" id="header">
+
+                <div className="col my-col">
+                    <h1>pic</h1>
+                </div>
+
+                <div className="col  my-col" >
+
+                   <h1>pic</h1>
+
+                </div>
+
+                    <div className="col  my-col" >
+
+                   <h1>pic</h1>
+
+                </div>
+
+        </div>
+    </div>
+*/
+
+
+
 

@@ -1,21 +1,41 @@
+#searcheEngine{
+	border: 3px double black;
+}
+
+.my-col {
+	border-right:  3px double black;
+	border-left:   3px double black;
+
+}
+
 #indexBody {
 	background-repeat: no-repeat;
 	background-image: url("/images/body.jpg");
 	background-size: cover;
 }
 
-.my-container {
-        border: 1px solid black;
-      }
-
-.my-row {
-	border: 3px solid red;
-
+body {
+background-repeat: no-repeat;
+background-image: url("/images/body.jpg");
+background-size: cover;
 }
 
-.my-col {
-	border: 3px dotted blue;
+#colName {
+font-family: 'Abril Fatface', cursive;
+}
 
+.navbar-brand {
+	font-family: 'Abril Fatface', cursive;
+	color: white;
+}
+
+#peeps {
+font-family: 'Gloria Hallelujah', cursive;
+}
+
+#skills {
+	font-family: 'Gloria Hallelujah', cursive;
+	margin-top: 5px;
 }
 
 #header {
@@ -25,6 +45,25 @@
 #searchEngine {
 	height: 30px;
 	display: inline-block;
+}
+
+#loginElem {
+font-family: 'Gloria Hallelujah', cursive;
+}
+
+.loginMenu {
+	font-family: 'Gloria Hallelujah', cursive;
+	text-align: center;
+	margin-top: 50px;
+}
+
+input[type=text] {
+	margin-top: -10px;
+	width: 150px;
+}
+
+.lg {
+	width: 50px;
 }
 
 img {
@@ -39,6 +78,13 @@ p {
 input[type=submit] {
     background:#ccc;
     font-size: 8px;
+}
+
+header {
+	text-align: center;
+	background-color: lightgray;
+	margin-bottom: 50px;
+	font-family: 'Abril Fatface', cursive;
 }
 
 #lol {

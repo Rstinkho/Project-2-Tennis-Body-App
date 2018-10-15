@@ -4,8 +4,9 @@ var React = require("react");
 class TestPage extends React.Component {
 
   render() {
-    const urlForEdit = `profile/:${this.props.info.one[0].name}/edit`
-
+    const urlForEdit = `profile/:${this.props.info.one[0].name}/edit`;
+    const urlForMesseges = `index/messages`;
+    const urlForLogout = `/logout`
     const people = this.props.info.two.map((person) => {
     const messageUrl = `/message/:${person.name}`;
 
@@ -93,8 +94,8 @@ class TestPage extends React.Component {
                     <nav className="navbar navbar-light bg-darkdark">
                         <p className="navbar-brand">Hello {this.props.info.one[0].name}</p>
                             <a href ={urlForEdit}> |profile </a>
-                            <a href="http://127.0.0.1:3000/index/messages"> | messages  </a>
-                            <a href="http://127.0.0.1:3000/logout"> | logout  </a>
+                            <a href={urlForMesseges}> | messages  </a>
+                            <a href={urlForLogout}> | logout  </a>
                     </nav>
 
                 </div>

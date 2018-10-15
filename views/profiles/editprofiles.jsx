@@ -1,7 +1,5 @@
 var React = require("react");
 
-// testing
-
 class pageProfile extends React.Component {
   render() {
 

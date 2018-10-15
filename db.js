@@ -15,11 +15,13 @@ pool.on('error', function (err) {
 
 const userModel = require('./models/users')(pool);
 const profileModel = require('./models/profiles')(pool);
+const messageModel = require('./models/messages')(pool);
 
 
 
 module.exports = {
     pool,
     userModel,
-    profileModel
+    profileModel,
+    messageModel
 };

@@ -1,3 +1,5 @@
-function closeForm() {
-  document.getElementById("lol").style.display = "none";
-}
+
+var urlmenu = document.getElementById( 'menu1' );
+ urlmenu.onchange = function() {
+      window.open( this.options[ this.selectedIndex ].value );
+ };

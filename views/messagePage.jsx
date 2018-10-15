@@ -21,7 +21,7 @@ class MessagePage extends React.Component {
                     <h3> TO {this.props.info.name} </h3>
 
                     <div className="user-attribute">
-                    your message:<input name="message" type="text" />
+                    your message:<input id="lol" name="message" type="text" />
                     </div>
 
                     <input name="submit" type="submit" />

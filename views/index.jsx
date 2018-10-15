@@ -2,10 +2,12 @@ var React = require("react");
 
 
 class TestPage extends React.Component {
+
   render() {
     const urlForEdit = `profile/:${this.props.info.one[0].name}/edit`
+
     const people = this.props.info.two.map((person) => {
-        const messageUrl = `/message/:${person.name}`;
+    const messageUrl = `/message/:${person.name}`;
 
         //console.log(urlForEdit);
 
@@ -13,6 +15,8 @@ class TestPage extends React.Component {
             {person.name}  <input type="submit" value ="message"/>
                 </form>)
     })
+
+
 
     var oneStar = <img src="/images/star.jpg" />
     var twoStar = <img src="/images/twostars.jpg" />
@@ -48,6 +52,11 @@ class TestPage extends React.Component {
     //techniques
     var tech;
 
+    var searchShit = {
+        noobs: `/search/:noobs`,
+        amateurs: `/search/:amateurs`,
+        pro: `/search/:pro`
+    };
 
     if (x.forehand <= 4) {starForForhand = oneStar, tech = 'find personal trainer'} else if (x.forehand >4 && x.forehand <7) {starForForhand = twoStar} else {starForForhand = threeStar, tech ='concentrate on your best skills'};
     if (x.backhand <= 4) {starForBackhand = oneStar, tech = 'find personal trainer'} else if (x.backhand >4 && x.backhand <7) {starForBackhand = twoStar} else {starForBackhand = threeStar, exr = 'explosive exersies'};
@@ -55,6 +64,11 @@ class TestPage extends React.Component {
     if (x.speed <= 4) {starForSpeed = oneStar, exr = 'work on cardio'} else if (x.speed >4 && x.speed <7) {starForSpeed = twoStar, sct = 'court type: grass' } else {starForSpeed = threeStar, tech ='concentrate on your best skills'};
     if (x.endurance <= 4) {starForEndurance = oneStar, exr = 'work on cardio'} else if (x.endurance >4 && x.endurance <7) {starForEndurance = twoStar, sct = 'court type: clay' } else {starForEndurance = threeStar};
     if (x.volley <= 4) {starForVolley = oneStar} else if (x.volley >4 && x.volley <7) {starForVolley = twoStar, exr = 'explosive exersies'} else {starForVolley = threeStar};
+
+
+
+
+
 
     return (
       <html>
@@ -87,18 +101,15 @@ class TestPage extends React.Component {
             </div>
 
 
+
              <div className="row my-row" id="searcheEngine" >
-             <form className="selectLevel">
-
-                 <p>search for</p>
-                    <select id="lvl" name="player level">
-                          <option value="t1">Noobs</option>
-                          <option value="t2">Amateurs</option>
-                          <option value="t3">Pro</option>
-                         </select>
-                <button>GO!</button>
-
-            </form>
+<select name="menu1" id="menu1">
+<option value="http://www.espn.com">ESPN</option>
+<option value="http://www.cnn.com">CNN</option>
+<option value="http://www.abcnews.com">ABC</option>
+<option value="http://www.cbsnews.com">CBS</option>
+<option value="http://www.foxnews.com">FOX</option>
+</select>
             </div>
 
             <div className="row my-row">
@@ -118,7 +129,7 @@ class TestPage extends React.Component {
 
                     <div className="col my-col">
 
-                        <h2>Reccomendations</h2>
+                        <h2>Recomendations</h2>
                         <ul>
                             <li>{sct}</li>
                             <li>{exr}</li>
@@ -136,6 +147,7 @@ class TestPage extends React.Component {
                     </div>
             </div>
         </div>
+        <script src = "script.js"></script>
     </body>
 
     </html>

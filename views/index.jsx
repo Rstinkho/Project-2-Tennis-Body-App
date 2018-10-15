@@ -4,7 +4,7 @@ var React = require("react");
 class TestPage extends React.Component {
 
   render() {
-    const urlForEdit = `profile/:${this.props.info.one.name}/edit`
+    const urlForEdit = `profile/:${this.props.info.one[0].name}/edit`
 
     const people = this.props.info.two.map((person) => {
     const messageUrl = `/message/:${person.name}`;

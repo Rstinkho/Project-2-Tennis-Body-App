@@ -54,7 +54,7 @@ module.exports = (db) => {
             response.status(500).send('DIDNT WORKS!!');
             }
 
-                   const user = queryResult;
+                   const user = queryResult[0];
 
 
                     const govno = {

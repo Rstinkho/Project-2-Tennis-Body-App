@@ -47,7 +47,3 @@ module.exports = {
     profileModel,
     messageModel
 };
-
-
-//this is the same
-const pool = new pg.Pool(configs);

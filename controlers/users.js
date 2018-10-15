@@ -54,8 +54,8 @@ module.exports = (db) => {
             response.status(500).send('DIDNT WORKS!!');
             }
 
-                    const user = queryResult;
-                    console.log(queryResult)
+                   const user = queryResult;
+
 
                     const govno = {
                     one: queryResult,

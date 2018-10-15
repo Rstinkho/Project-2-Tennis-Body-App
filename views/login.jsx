@@ -2,6 +2,7 @@ var React = require("react");
 
 class LoginPage extends React.Component {
   render() {
+    const linkForRegs = `/register`
     return (
       <html>
       <head>
@@ -57,7 +58,7 @@ class LoginPage extends React.Component {
 
             <input name="submit" type="submit" />
             </form>
-            <p>Dont have an account yet? <a href="http://127.0.0.1:3000/register">Register!</a></p>
+            <p>Dont have an account yet? <a href={linkForRegs}>Register!</a></p>
 
           </nav>
         </body>

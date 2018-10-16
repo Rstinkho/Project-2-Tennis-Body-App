@@ -17,7 +17,7 @@ class pageProfile extends React.Component {
       <html>
       <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="http://127.0.0.1:3000/main.css" />
+        <link rel="stylesheet" href="https://salty-ridge-12319.herokuapp.com/style.css" />
       </head>
 
         <body>

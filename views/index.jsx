@@ -59,12 +59,12 @@ class TestPage extends React.Component {
         pro: `/search/:pro`
     };
 
-    if (x.forehand <= 4) {starForForhand = oneStar, tech = 'find personal trainer'} else if (x.forehand >4 && x.forehand <7) {starForForhand = twoStar} else {starForForhand = threeStar, tech ='concentrate on your best skills'};
+    if (x.forehand <= 4) {starForForhand = oneStar, tech = 'find personal trainer'} else if (x.forehand >4 && x.forehand <7) {starForForhand = twoStar, exr ='tennis wall practice'} else {starForForhand = threeStar, tech ='concentrate on your best skills'};
     if (x.backhand <= 4) {starForBackhand = oneStar, tech = 'find personal trainer'} else if (x.backhand >4 && x.backhand <7) {starForBackhand = twoStar} else {starForBackhand = threeStar, exr = 'explosive exersies'};
     if (x.serve <= 4) {starForServe = oneStar, tech = 'find personal trainer'} else if (x.serve >4 && x.serve <7) {starForServe = twoStar, sct = 'court type: grass'} else {starForServe = threeStar, tech ='concentrate on your best skills'};
     if (x.speed <= 4) {starForSpeed = oneStar, exr = 'work on cardio'} else if (x.speed >4 && x.speed <7) {starForSpeed = twoStar, sct = 'court type: grass' } else {starForSpeed = threeStar, tech ='concentrate on your best skills'};
     if (x.endurance <= 4) {starForEndurance = oneStar, exr = 'work on cardio'} else if (x.endurance >4 && x.endurance <7) {starForEndurance = twoStar, sct = 'court type: clay' } else {starForEndurance = threeStar};
-    if (x.volley <= 4) {starForVolley = oneStar} else if (x.volley >4 && x.volley <7) {starForVolley = twoStar, exr = 'explosive exersies'} else {starForVolley = threeStar};
+    if (x.volley <= 4) {starForVolley = oneStar, exr = 'coordination exersizes'} else if (x.volley >4 && x.volley <7) {starForVolley = twoStar, exr = 'explosive exersies'} else {starForVolley = threeStar};
 
 
 

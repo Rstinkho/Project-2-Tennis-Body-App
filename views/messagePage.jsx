@@ -10,7 +10,7 @@ class MessagePage extends React.Component {
     <html>
 
             <head>
-            <link rel="stylesheet" href="style.css" />
+            <link rel="https://salty-ridge-12319.herokuapp.com/style.css" />
             </head>
 
             <body>

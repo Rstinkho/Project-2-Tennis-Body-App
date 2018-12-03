@@ -5,7 +5,7 @@ class RegPage extends React.Component {
     return (
       <html>
       <head>
-            <link rel="stylesheet" href="https://salty-ridge-12319.herokuapp.com/style.css" />
+            <link rel="stylesheet" href="https://app-tennis-buddy.herokuapp.com/style.css" />
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
             <link href="https://fonts.googleapis.com/css?family=Unlock" rel="stylesheet" />
             <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Gloria+Hallelujah" rel="stylesheet" />

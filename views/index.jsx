@@ -15,11 +15,11 @@ class TestPage extends React.Component {
 
         return (<form action={messageUrl} method="GET">
                 <div className="row">
-                    <div className="col col-6">
+                    <div className="col col-8">
                         <i className="fas fa-signal"> </i> {person.name}
                     </div>
 
-                    <div className="col col-6">
+                    <div className="col col-4">
                         <button type="submit" value ="message">
                             <i  className="far fa-comments"> </i>
                         </button>

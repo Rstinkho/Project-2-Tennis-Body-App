@@ -13,7 +13,7 @@ module.exports = (db) => {
 
                 } else {
 
-                    const sqlTextTwo = "SELECT * FROM users;"
+                    const sqlTextTwo = "SELECT * FROM users INNER JOIN profiles ON profiles.name = users.name;"
 
                     db.query(sqlTextTwo, (error, queryResultTwo) => {
 
